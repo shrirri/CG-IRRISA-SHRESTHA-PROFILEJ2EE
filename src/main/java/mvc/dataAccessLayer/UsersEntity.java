@@ -24,25 +24,7 @@ public class UsersEntity {
 	String Email;
 	@Column(name="dob")
 	String DoB;
-/*
-	public UsersEntity(String fname,String lname,String pnum,String email,String dob,String uid, String pwd)
-	{	this.Uid=uid;
-		this.Pwd=pwd;
-		this.Fname=fname;
-		this.Lname=lname;
-		this.Phonenum=pnum;
-		this.Email=email;
-		this.DoB=dob;
-		this.Pwd=pwd;
-	}
-	public UsersEntity(String uid)
-	{
-		this.Uid=uid;
-	}
-	public UsersEntity()
-	{
-	}
-*/
+
 	public String getUid() {
 		return Uid;
 	}

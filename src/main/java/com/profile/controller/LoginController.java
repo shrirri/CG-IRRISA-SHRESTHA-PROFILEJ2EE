@@ -16,7 +16,7 @@ public class LoginController {
 LoginBusiness lb;
 	
 	
-	@GetMapping({"/auth"})
+	@GetMapping({"/authfdfs"})
 	public String reg(@RequestParam String uid,@RequestParam String pwd) {
 		System.out.println("in login controller");
 		System.out.println(uid+pwd);
