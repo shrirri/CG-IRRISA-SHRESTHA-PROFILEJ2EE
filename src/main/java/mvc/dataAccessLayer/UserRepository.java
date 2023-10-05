@@ -9,7 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface UserRepository extends JpaRepository<UsersEntity, String> {
 		
-
+	@Query(value="SELECT count(1) FROM users WHERE userid= ?1 and password=?2",nativeQuery = true)
+	public int checkUidPwdInDB(String uid,String pwd);
 		
 }
 
