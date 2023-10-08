@@ -1,12 +1,12 @@
 function checkIfEmpty(){
-	var uTextbox=document.getElementById("uid").value;
-	var pTextbox=document.getElementById("pwd").value;	
-	if (uTextbox==""){
-	alert("Userid is mandatory");
+	var opTextbox=document.getElementById("opwd").value;
+	var npTextbox=document.getElementById("npwd").value;	
+	if (opTextbox==""){
+	alert("Old Password is mandatory");
 	return false;
 	}
-	else if (pTextbox==""){
-	alert("Password is mandatory");
+	else if (npTextbox==""){
+	alert("New Password is mandatory");
 	return false;
 	}
 	return true;

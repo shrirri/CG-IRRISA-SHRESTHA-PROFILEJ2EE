@@ -19,6 +19,13 @@ public boolean register(String fname,String lname,String pnum,String email,Strin
 		System.out.println("in service register");
 		UsersEntity ue=new UsersEntity();
 		ue.setUid(uid);
+		int result=ur.checkUidInDB(uid);
+		if (result==1) {
+			System.out.println("uid  "+ue.getUid()+" exists");
+			return false;
+		}
+		else {
+		ue.setUid(uid);
 		ue.setPwd(pwd);
 		ue.setFname(fname);
 		ue.setLname(lname);
@@ -26,8 +33,9 @@ public boolean register(String fname,String lname,String pnum,String email,Strin
 		ue.setEmail(email);
 		ue.setDoB(dob);
 		ur.save(ue);
-		System.out.println(ue);
-		System.out.println("exiting from service register");
+		System.out.println(ue.getUid());
+		}
+		System.out.println("new user registered");
 		return true;
 	}
 
