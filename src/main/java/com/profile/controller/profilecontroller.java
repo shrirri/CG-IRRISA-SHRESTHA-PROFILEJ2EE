@@ -54,7 +54,7 @@ public class profilecontroller {
 				if(res==true)
 					return "pwsuccess";
 				else
-					return "failure";
+					return "pwerror";
 			}
 			
 			@GetMapping({"/updateprofile"})
@@ -63,9 +63,9 @@ public class profilecontroller {
 				System.out.println("new email="+email+" AND new phone="+pnum);
 				boolean res=ub.changeprofile(uid,email,pnum);
 				if(res==true)
-					return "pwsuccess";
+					return "profilechangesuccess";
 				else
-					return "failure";
+					return "nouserid";
 			}
 			
 			@Autowired

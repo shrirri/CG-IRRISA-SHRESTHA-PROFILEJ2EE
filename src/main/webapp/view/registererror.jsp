@@ -1,3 +1,3 @@
-<h1>Userid exists!!!</h1> 
+<h1>Error!!!</h1> 
 
-<h2>Please choose a different Userid.<h2>
+<h2> Duplicate entry for Userid or Phone or Email<h2>

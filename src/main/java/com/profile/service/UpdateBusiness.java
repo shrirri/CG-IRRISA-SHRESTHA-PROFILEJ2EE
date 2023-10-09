@@ -18,20 +18,35 @@ public class UpdateBusiness {
 		System.out.println("in service to change password");
 		UsersEntity ue=new UsersEntity();
 		ue.setUid(uid);
-		ue.setPwd(pwd);
-		ur.save(ue);
-		//ur.updatePwd(uid,pwd);
-		return true;
+		int result=ur.checkUidInDB(uid);
+		if (result==1) {
+			ue.setPwd(pwd);
+			ur.updatePwd(uid,pwd);
+			System.out.println("password changed");
+			return true;
+		}
+		else {
+			System.out.println("uid does not exists");
+			return false;
+		}
 	}
 	
 	public boolean changeprofile(String uid,String email,String pnum) {
 		System.out.println("in service to update profile");
 		UsersEntity ue=new UsersEntity();
 		ue.setUid(uid);
-		ue.setEmail(email);
-		ue.setPhonenum(pnum);
-		ur.save(ue);
-		//ur.updateProfile(uid,email,pnum);
-		return true;
+		int result=ur.checkUidInDB(uid);
+		if (result==1) {	
+			ue.setEmail(email);
+			ue.setPhonenum(pnum);
+			ur.updateProfile(uid,email,pnum);
+			System.out.println("profile updated");
+			return true;
+		}
+		else {
+			System.out.println("uid  does not exists");
+			return false;
+		}
+			
 	}
 }

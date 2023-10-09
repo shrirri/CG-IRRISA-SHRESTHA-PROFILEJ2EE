@@ -17,28 +17,25 @@ public class RegisterBusiness {
 	
 public boolean register(String fname,String lname,String pnum,String email,String dob,String uid, String pwd) {
 		System.out.println("in service register");
-		UsersEntity ue=new UsersEntity();
-		ue.setUid(uid);
-		int result=ur.checkUidInDB(uid);
-		if (result==1) {
-			System.out.println("uid  "+ue.getUid()+" exists");
-			return false;
-		}
+		int result=ur.checkUidPhoneEmailExistinDB(uid,pnum,email);
+		if (result==0) {
+			UsersEntity ue=new UsersEntity();
+			ue.setUid(uid);
+			ue.setPhonenum(pnum);
+			ue.setEmail(email);
+			ue.setUid(uid);
+			ue.setPwd(pwd);
+			ue.setFname(fname);
+			ue.setLname(lname);
+			ue.setDoB(dob);
+			ur.save(ue);
+			System.out.println(ue.getUid());
+			System.out.println("new user registered");
+			return true;			
+			}
 		else {
-		ue.setUid(uid);
-		ue.setPwd(pwd);
-		ue.setFname(fname);
-		ue.setLname(lname);
-		ue.setPhonenum(pnum);
-		ue.setEmail(email);
-		ue.setDoB(dob);
-		ur.save(ue);
-		System.out.println(ue.getUid());
+			System.out.println("uid or phone or email already exists");
+			return false;
+			}
 		}
-		System.out.println("new user registered");
-		return true;
-	}
-
-
-
 }
